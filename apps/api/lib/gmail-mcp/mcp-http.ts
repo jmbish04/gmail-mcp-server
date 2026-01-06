@@ -146,7 +146,7 @@ mcpRouter.post('/mcp/execute', async (c) => {
 
         if (isRagEnabled() && c.env.VECTORIZE) {
           const emails = JSON.parse(unreadResult.content[0].text);
-          await indexEmails(emails, c.env.VECTORIZE);
+          await indexEmails(emails, c.env.VECTORIZE, c.env);
         }
 
         result = unreadResult;
