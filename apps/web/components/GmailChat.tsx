@@ -58,7 +58,7 @@ export default function GmailChat() {
   ];
 
   const handleQuickAction = (action: string) => {
-    handleInputChange({ target: { value: action } } as any);
+    handleInputChange(action);
   };
 
   return (
