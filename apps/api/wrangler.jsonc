@@ -3,16 +3,16 @@
 
   // [METADATA]
   // Application identity and Cloudflare runtime compatibility settings.
-  "name": "gmail-mcp=server-api",
+  "name": "gmail-mcp-server-api",
   "main": "./worker.ts",
   "compatibility_date": "2025-08-15",
   "compatibility_flags": ["nodejs_compat"],
   "workers_dev": true,
   "upload_source_maps": true,
-  "observability":{
+  "observability": {
     "enabled": true
   },
- 
+
   "kv_namespaces": [
     {
       "binding": "KV",
@@ -25,16 +25,20 @@
       "binding": "DB",
       "database_name": "gmail-mcp-server",
       "database_id": "7ea1b9e0-f5fe-47ce-a8a9-6ee2b62013df",
-      "migrations_dir": "./drizzle/migrations
+      "migrations_dir": "./drizzle/migrations"
     }
   ],
-// wrangler vectorize create gmail-mcp-server --preset @cf/baai/bge-large-en-v1.5
 
+  // wrangler vectorize create gmail-mcp-server --preset @cf/baai/bge-large-en-v1.5
   "vectorize": [
     {
       "binding": "VECTORIZE",
       "index_name": "gmail-mcp-server"
     }
-  ]
+  ],
 
- }
+  // Cloudflare AI binding for embeddings
+  "ai": {
+    "binding": "AI"
+  }
+}

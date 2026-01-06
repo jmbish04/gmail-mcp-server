@@ -1,0 +1,49 @@
+{
+  "timeZone": "America/New_York",
+  "dependencies": {
+    "enabledAdvancedServices": [
+      {
+        "userSymbol": "Gmail",
+        "version": "v1",
+        "serviceId": "gmail"
+      }
+    ]
+  },
+  "exceptionLogging": "STACKDRIVER",
+  "runtimeVersion": "V8",
+  "oauthScopes": [
+    "https://www.googleapis.com/auth/gmail.addons.current.message.readonly",
+    "https://www.googleapis.com/auth/gmail.addons.current.message.action",
+    "https://www.googleapis.com/auth/gmail.compose",
+    "https://www.googleapis.com/auth/gmail.modify",
+    "https://www.googleapis.com/auth/script.external_request",
+    "https://www.googleapis.com/auth/userinfo.email"
+  ],
+  "gmail": {
+    "name": "Gmail MCP Assistant",
+    "logoUrl": "https://www.gstatic.com/images/branding/product/1x/gmail_48dp.png",
+    "contextualTriggers": [
+      {
+        "unconditional": {},
+        "onTriggerFunction": "onGmailMessageOpen"
+      }
+    ],
+    "composeTrigger": {
+      "selectActions": [
+        {
+          "text": "AI Writing Assistant",
+          "runFunction": "onGmailCompose"
+        }
+      ],
+      "draftAccess": "METADATA"
+    },
+    "universalActions": [
+      {
+        "text": "Open MCP Chat",
+        "runFunction": "onGmailMessageOpen"
+      }
+    ],
+    "primaryColor": "#4285F4",
+    "secondaryColor": "#34A853"
+  }
+}
