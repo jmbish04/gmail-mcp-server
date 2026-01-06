@@ -85,7 +85,7 @@ export async function indexEmails(
           from: email.from,
           to: email.to,
           date: email.date,
-          labelIds: JSON.stringify(email.labelIds),
+          labelIds: email.labelIds,
         },
       });
     } catch (err) {
