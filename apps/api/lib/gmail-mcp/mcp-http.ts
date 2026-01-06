@@ -177,7 +177,7 @@ mcpRouter.post('/mcp/execute', async (c) => {
           query: string;
           k?: number;
         };
-        result = await vectorSearchEmailsHandler(query, k, c.env.VECTORIZE);
+        result = await vectorSearchEmailsHandler(query, k, c.env.VECTORIZE, c.env);
         break;
       }
       default:
