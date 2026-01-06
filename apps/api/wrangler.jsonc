@@ -3,13 +3,13 @@
 
   // [METADATA]
   // Application identity and Cloudflare runtime compatibility settings.
-  "name": "example-api",
+  "name": "gmail-mcp=server-api",
   "main": "./worker.ts",
   "compatibility_date": "2025-08-15",
   "compatibility_flags": ["nodejs_compat"],
   "workers_dev": true,
   "upload_source_maps": true,
-  "observability"{
+  "observability":{
     "enabled": true
   },
  
