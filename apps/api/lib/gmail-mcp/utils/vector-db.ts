@@ -1,8 +1,21 @@
 /**
  * @file Cloudflare Vectorize Integration for Gmail Email Search
  *
- * This module handles vector embeddings and semantic search using Cloudflare Vectorize
- * instead of ChromaDB, making it compatible with Cloudflare Workers.
+ * This module provides semantic email search capabilities using:
+ * - Cloudflare Vectorize for vector storage
+ * - Cloudflare AI Workers for embeddings (@cf/baai/bge-large-en-v1.5)
+ * - Efficient batch indexing of email content
+ * - Fast semantic similarity search
+ *
+ * Features:
+ * - Automatic email indexing on retrieval
+ * - 384-dimensional vector embeddings
+ * - Metadata storage for email attributes
+ * - Fallback embeddings for local development
+ *
+ * @author Gmail MCP Team
+ * @version 1.0.0
+ * @see https://developers.cloudflare.com/vectorize
  */
 
 import type { IReadableGmailFormat } from './format';

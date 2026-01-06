@@ -4,6 +4,17 @@
  * This module handles authentication using Google Service Accounts with
  * domain-wide delegation, allowing the MCP server to access Gmail on behalf
  * of users in a Google Workspace domain.
+ *
+ * Setup Requirements:
+ * 1. Create service account in Google Cloud Console
+ * 2. Enable domain-wide delegation for the service account
+ * 3. Configure OAuth scopes in Google Workspace Admin Console
+ * 4. Download service account JSON key
+ * 5. Add key to environment as GOOGLE_SERVICE_ACCOUNT_KEY
+ *
+ * @author Gmail MCP Team
+ * @version 1.0.0
+ * @see https://developers.google.com/identity/protocols/oauth2/service-account
  */
 
 import { google } from 'googleapis';

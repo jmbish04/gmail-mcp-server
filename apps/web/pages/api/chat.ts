@@ -1,8 +1,22 @@
 /**
  * @file Chat API Route with AI SDK streaming
  *
- * Integrates with the MCP server and provides streaming responses
- * using Vercel AI SDK and OpenAI.
+ * This API route handles chat requests from the frontend and provides
+ * streaming AI responses using:
+ * - Vercel AI SDK for streaming text generation
+ * - OpenAI GPT-4 Turbo for AI capabilities
+ * - MCP server tools for Gmail operations
+ * - Server-Sent Events (SSE) for real-time streaming
+ *
+ * The AI has access to Gmail tools via the MCP server and can:
+ * - Retrieve and search emails
+ * - Send emails
+ * - Summarize conversations
+ * - Manage labels
+ *
+ * @author Gmail MCP Team
+ * @version 1.0.0
+ * @see https://sdk.vercel.ai/docs
  */
 
 import type { APIRoute } from 'astro';

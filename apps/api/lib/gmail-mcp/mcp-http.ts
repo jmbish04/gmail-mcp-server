@@ -1,8 +1,17 @@
 /**
  * @file MCP Server over HTTP for Cloudflare Workers
  *
- * This module provides an HTTP-based MCP server that can run on Cloudflare Workers,
- * enabling agent-to-agent communication and integration with Gmail via service accounts.
+ * This module provides an HTTP-based MCP (Model Context Protocol) server that runs
+ * on Cloudflare Workers edge network, enabling:
+ * - RESTful HTTP API for MCP protocol
+ * - Agent-to-agent (A2A) communication
+ * - Gmail integration via service accounts
+ * - Semantic email search with Vectorize
+ * - Real-time streaming responses via SSE
+ *
+ * @author Gmail MCP Team
+ * @version 1.0.0
+ * @see https://modelcontextprotocol.io
  */
 
 import { Hono } from 'hono';
@@ -64,20 +73,25 @@ mcpRouter.get('/health', (c) => {
   });
 });
 
-// MCP protocol endpoints
+/**
+ * MCP Tools Configuration
+ *
+ * Defines all available MCP tools for Gmail operations.
+ * RAG tools (vector search) are conditionally included based on Vectorize availability.
+ */
 const RAG_TOOLS: any[] = isRagEnabled() ? [VECTOR_SEARCH_EMAILS_TOOL] : [];
 
 const ALL_TOOLS: any[] = [
-  GET_GMAIL_PROFILE_TOOL,
-  SEND_EMAIL_TOOL,
-  SUMMARIZE_TOP_K_EMAILS_TOOL,
-  GET_UNREAD_EMAILS_TOOL,
-  GLOBAL_SEARCH_TOOL,
-  LIST_LABELS_TOOL,
-  CREATE_LABEL_TOOL,
-  DELETE_EMAIL_TOOL,
-  DELETE_LABELS_TOOL,
-  ...RAG_TOOLS,
+  GET_GMAIL_PROFILE_TOOL,      // Get Gmail profile information
+  SEND_EMAIL_TOOL,             // Send emails via Gmail API
+  SUMMARIZE_TOP_K_EMAILS_TOOL, // AI-powered email summarization
+  GET_UNREAD_EMAILS_TOOL,      // Retrieve unread emails
+  GLOBAL_SEARCH_TOOL,          // Search emails with Gmail query syntax
+  LIST_LABELS_TOOL,            // List all Gmail labels
+  CREATE_LABEL_TOOL,           // Create new Gmail labels
+  DELETE_EMAIL_TOOL,           // Delete emails
+  DELETE_LABELS_TOOL,          // Delete Gmail labels
+  ...RAG_TOOLS,                // Vector search tools (if enabled)
 ];
 
 // List available tools

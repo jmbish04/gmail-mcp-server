@@ -2,19 +2,17 @@
  * @file Gmail MCP Chat Component
  *
  * Full-featured chat interface for Gmail MCP server with:
- * - assistant-ui for chat UI
- * - Vercel AI SDK for streaming
- * - shadcn/ui for components
+ * - Vercel AI SDK for streaming responses
+ * - shadcn/ui for accessible, beautiful components
  * - Responsive mobile and desktop design
+ * - Real-time message streaming
+ * - Quick action buttons for common tasks
+ *
+ * @author Gmail MCP Team
+ * @version 1.0.0
  */
 
 import { useChat } from 'ai/react';
-import {
-  Thread,
-  ComposerPrimitive,
-  MessagePrimitive,
-  ThreadPrimitive
-} from '@assistant-ui/react';
 import {
   Send,
   Mail,
@@ -28,7 +26,6 @@ import { useState } from 'react';
 import { cn } from '../lib/utils';
 import { Button } from './ui/button';
 import { Card } from './ui/card';
-import { Separator } from './ui/separator';
 import { ScrollArea } from './ui/scroll-area';
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
 import {
