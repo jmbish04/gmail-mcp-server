@@ -29,6 +29,13 @@
     }
   ],
 
+	"hyperdrive": [
+		{
+			"binding": "HYPERDRIVE_SUPABASE",
+			"id": "e45a7c4259b84c52a8470032f02c15e3"
+		}
+	],
+
   // wrangler vectorize create gmail-mcp-server --preset @cf/baai/bge-large-en-v1.5
   "vectorize": [
     {
