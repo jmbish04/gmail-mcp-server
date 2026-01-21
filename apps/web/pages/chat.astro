@@ -1,0 +1,10 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import GmailChat from '../components/GmailChat';
+---
+
+<BaseLayout title="Gmail MCP Chat">
+  <div class="w-full h-screen bg-background">
+    <GmailChat client:load />
+  </div>
+</BaseLayout>

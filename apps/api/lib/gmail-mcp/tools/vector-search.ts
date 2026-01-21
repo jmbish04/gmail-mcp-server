@@ -21,9 +21,23 @@ export const VECTOR_SEARCH_EMAILS_TOOL: Tool = {
 
 export const vectorSearchEmailsHandler = async (
   query: string,
-  k: number = 5
+  k: number = 5,
+  vectorize?: VectorizeIndex,
+  env?: any
 ) => {
-  const results = await vectorSearchEmails(query, k);
+  if (!vectorize) {
+    return {
+      content: [
+        {
+          type: 'text',
+          text: JSON.stringify({ error: 'Vectorize not available' }),
+        },
+      ],
+      isError: true,
+    };
+  }
+
+  const results = await vectorSearchEmails(query, k, vectorize, env);
   return {
     content: [
       {
