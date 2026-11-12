@@ -10,7 +10,9 @@
   "workers_dev": true,
   "upload_source_maps": true,
   "observability": {
-    "enabled": true
+    "enabled": true,
+    "traces": { "enabled": false },
+    "logs": { "enabled": true, "invocation_logs": false }
   },
 
   "kv_namespaces": [
